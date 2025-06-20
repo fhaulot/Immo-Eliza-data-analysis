@@ -1,4 +1,4 @@
-import DataAnalysis from dataviz
+from dataviz import DataAnalysis 
 
 def main():
     dataviz = DataAnalysis()

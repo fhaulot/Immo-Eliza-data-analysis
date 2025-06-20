@@ -1,6 +1,5 @@
 class DataAnalysis:
-    def init(self):
-        pass
 
-    def read_csv():
+    def read_csv(self):
         # read the csv file with pandas
+        pass

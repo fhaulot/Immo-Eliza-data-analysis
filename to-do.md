@@ -37,13 +37,8 @@
                 "terraceSurface",
                 "terraceOrientation",
                 "accessibleDisabledPeople",
-- input false if empty :
-    "has garden", "has terrace", garden surface (0 if empty)
--what to pick :
-    id, price, subtype, postaclcode, province, locality
-- dropping empty cells
-    price, epc score, bedroom count, 
-- remove 1 '0' from the bedroom
+- input 0 if empty, 1 if not empty:
+    "has garden", "has terrace", garden surface 
 - new column :
     parking columns (either has value, say one, if not 0)
 

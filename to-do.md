@@ -38,8 +38,10 @@
                 "terraceOrientation",
                 "accessibleDisabledPeople",
 - input 0 if empty, 1 if not empty:
-    "has garden", "has terrace", garden surface 
-- new column :
+    "has garden", "has terrace"
+- input 0 if empty, leave current value if not empty
+   "garden surface" 
+- new column :garden
     parking columns (either has value, say one, if not 0)
 
 

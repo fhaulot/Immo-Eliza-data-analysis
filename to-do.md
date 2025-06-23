@@ -44,4 +44,7 @@
 - new column :garden
     parking columns (either has value, say one, if not 0)
 
+- dropping empty rows
+    price and living surface
+    
 

@@ -47,7 +47,7 @@ class DataAnalysis:
         "hasFireplace",
         "terraceSurface",
         "terraceOrientation",
-        "accessibleDisabledPeople"]
+        "accessibleDisabledPeople", "parkingCountIndoor", "parkingCountOutdoor"]
         cleaned_columns = df.drop(columns=Col_to_drop, axis=1)
         print(cleaned_columns.info())
         return cleaned_columns

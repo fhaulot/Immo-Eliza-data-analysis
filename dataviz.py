@@ -107,3 +107,7 @@ class DataAnalysis:
         count = orig - df.shape[0]
         print(f'Dropped {count} large and apartment type ')
         return df
+    
+    def remove_empty_rows(self, df):
+        cleaned_df = df.dropna()
+        return cleaned_df

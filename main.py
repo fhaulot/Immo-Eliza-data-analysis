@@ -15,6 +15,10 @@ def main():
     df = dataviz.convert_has_terrace (df)
     print(df.info())
 
+    df = dataviz.add_parking_col(df)
+    print(df.info())
+    dataviz.save_csv(df, 'cleaned_data.csv')
+
         
 if __name__ == "__main__":
     main()

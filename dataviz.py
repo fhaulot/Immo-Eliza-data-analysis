@@ -69,3 +69,41 @@ class DataAnalysis:
         return df
 
 
+    def save_csv(self, df, path):
+        df.to_csv(path, index=False)
+
+    def add_parking_col(self, df):
+        df = self.__clean_parking_data(df)
+        df["hasParking"] = df.apply(
+            lambda row: 1 if (
+                (not pd.isna(row.parkingCountIndoor) and row.parkingCountIndoor > 0)
+                or (not pd.isna(row.parkingCountOutdoor) and row.parkingCountOutdoor > 0)
+            ) else 0,
+            axis=1
+        )
+        count_0 = df['hasParking'].value_counts().get(0)
+        count_1 = df['hasParking'].value_counts().get(1)
+        print('count_0', count_0, 'count_1', count_1 )
+        print(df.info())
+        return df
+
+    def __check_if_too_large(self, df, col_name):
+        return df[col_name] > 1000
+
+    def __check_if_large_and_apt(self, df, col_name):
+        return (df[col_name] > 100) & (df['type'] == 'APARTMENT')
+
+    def __clean_parking_data(self, df):
+        orig = df.shape[0]
+        # > 1000 drop, >100 keep if type is not apartment
+        rows_to_drop = (self.__check_if_too_large(df, 'parkingCountIndoor')) | (self.__check_if_too_large(df, 'parkingCountOutdoor'))
+        df = df[~rows_to_drop]
+        count = orig - df.shape[0]
+        print(f'Dropped {count} too large')
+        
+        orig = df.shape[0]
+        rows_to_drop = (self.__check_if_large_and_apt(df, 'parkingCountIndoor')) | (self.__check_if_large_and_apt(df, 'parkingCountOutdoor'))
+        df = df[~rows_to_drop]
+        count = orig - df.shape[0]
+        print(f'Dropped {count} large and apartment type ')
+        return df

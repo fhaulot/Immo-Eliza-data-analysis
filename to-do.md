@@ -2,14 +2,49 @@
 
 ## Step 1: Data cleaning
 
-- implement read_csv method
-- count nr of missing values for living_area --> check with the group what to do
-- split "type" into different columns: "type" for the main type (house or apartment) and "subtype" for the extra info 
-- fill empty values in "garage" with 0s
-- change "garden" column to 1 (for True) and 0 (False)
-- EPC decide what's a minimum realistic nr and replace values below that with None
-- Renovation: fill missing data with False. Turn all values into 0/1
-- Change Garage where more than 5 spots change to 1, the one with 15 we keep
-- Type Project  delete
-- Street and number columns delete
-- Delete column year built
+- columns we need to delete : 
+                "roomCount",
+                "monthlyCost",
+                "hasAttic",
+                "hasBasement",
+                "hasDressingRoom",
+                "diningRoomSurface",
+                "hasDiningRoom",
+                "buildingConstructionYear",
+                "facedeCount",
+                "floorCount",
+                "streetFacadeWidth",
+                "hasLift",
+                "floodZoneType",
+                "heatingType",
+                "hasHeatPump",
+                "hasPhotovoltaicPanels",
+                "hasThermicPanels",
+                "kitchenSurface",
+                "kitchenType",
+                "landSurface",
+                "hasLivingRoom",
+                "livingRoomSurface",
+                "hasBalcony",
+                "gardenOrientation",
+                "hasAirConditioning",
+                "hasArmoredDoor",
+                "hasVisiophone",
+                "hasOffice",
+                "toiletCount",
+                "hasSwimmingPool",
+                "hasFireplace",
+                "terraceSurface",
+                "terraceOrientation",
+                "accessibleDisabledPeople",
+- input false if empty :
+    "has garden", "has terrace", garden surface (0 if empty)
+-what to pick :
+    id, price, subtype, postaclcode, province, locality
+- dropping empty cells
+    price, epc score, bedroom count, 
+- remove 1 '0' from the bedroom
+- new column :
+    parking columns (either has value, say one, if not 0)
+
+

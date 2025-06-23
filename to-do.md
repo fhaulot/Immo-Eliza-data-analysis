@@ -41,10 +41,9 @@
     "has garden", "has terrace"
 - input 0 if empty, leave current value if not empty
    "garden surface" 
-- new column :garden
+- new column :hasParking
     parking columns (either has value, say one, if not 0)
 
-- dropping empty rows
-    price and living surface
+- dropping empty rows 
     
 

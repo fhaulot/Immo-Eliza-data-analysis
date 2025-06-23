@@ -43,8 +43,13 @@
    "garden surface" 
 - new column :garden
     parking columns (either has value, say one, if not 0)
-
 - dropping empty rows
     price and living surface
+
+- normalize upper locality column
     
+- drop dubble (and X) epc score (12 rows)
+- drop the unnamed column
+
+
 

@@ -12,7 +12,7 @@ class DataAnalysis:
 
     def drop_column(self, df:pd.DataFrame) :
         # dropping the columns we think don't have enough relevant data to use
-        Col_to_drop = [
+        Col_to_drop = ["Unnamed: 0",
         "bathroomCount",
         "roomCount",
         "monthlyCost",

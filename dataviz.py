@@ -2,7 +2,16 @@ import pandas as pd
 
 
 class DataAnalysis:
-    COL_TO_DROP = [
+   
+    def read_csv(self, path):
+        # read the csv file with pandas
+        df = pd.read_csv(path)
+        print(df.info())
+        return df
+
+    def drop_column(self, df:pd.DataFrame) :
+        # dropping the columns we think don't have enough relevant data to use
+        Col_to_drop = [
         "bathroomCount",
         "roomCount",
         "monthlyCost",
@@ -39,9 +48,6 @@ class DataAnalysis:
         "terraceOrientation",
         "accessibleDisabledPeople",
     ]
-
-    def read_csv(self, path):
-        # read the csv file with pandas
-        df = pd.read_csv(path)
-        print(df.info())
-        return df
+        cleaned_columns = df.drop(columns=Col_to_drop, axis=1)
+        print(cleaned_columns.info())
+        return cleaned_columns

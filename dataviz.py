@@ -112,8 +112,16 @@ class DataAnalysis:
         cleaned_df = df.dropna()
         return cleaned_df
 
+
+    # Normalize Municipality Name
+    def normalize_municipality (self, df):
+        postcode_df = pd.read_excel("./PC_Reference.xlsx")                                                        
+        normalized_df = pd.merge(df, postcode_df, on='postCode', how='left')
+        return normalized_df
+
     def sanitize_epcScore(self, df):
         # Matches scores from A to G with optional + and -
         valid_epc_regex = r'^[A-G][+-]*$'
         df = df[df['epcScore'].str.match(valid_epc_regex)]
         return df
+

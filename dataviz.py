@@ -111,3 +111,13 @@ class DataAnalysis:
     def remove_empty_rows(self, df):
         cleaned_df = df.dropna()
         return cleaned_df
+
+    # Normalize Municipality Name
+   
+    def normalize_municipality (self, df):
+        postcode_file = pd.read_excel("./PC_Reference.xlsx")                                                        
+        postcode_df = pd.DataFrame(pd.read_csv("./PC_Reference.csv"))
+        normalized_df = pd.merge(df, postcode_file, on='postCode', how='Left')
+        return normalized_df
+        
+        

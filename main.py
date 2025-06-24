@@ -16,9 +16,15 @@ def main():
         
     df = dataviz.remove_empty_rows(df)
     
+    df= dataviz.normalize_municipality(df)
+    
     dataviz.save_csv(df, 'cleaned_data.csv')
-    print(df.info())
-        
+    print(df.head())
+    
+
+   
+  
+            
 if __name__ == "__main__":
     main()
 

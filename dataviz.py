@@ -111,3 +111,12 @@ class DataAnalysis:
     def remove_empty_rows(self, df):
         cleaned_df = df.dropna()
         return cleaned_df
+
+    def filter_likely_outliers(self, df):
+        return df[
+            (df['price'] >= 50000) & (df['price'] <= 1_000_000) &
+            # Not sure if we need to include this filter once we remove the ids that Floriane identified
+            # (df['habitableSurface'] >= 15) & (df['habitableSurface'] <= 600) &
+            (df['bedroomCount'] <= 20) 
+            & ((df['gardenSurface'] <= 3000) | (df['hasGarden'] == 0))
+        ]

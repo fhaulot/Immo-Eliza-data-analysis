@@ -113,11 +113,7 @@ class DataAnalysis:
         return cleaned_df
 
     # Normalize Municipality Name
-   
     def normalize_municipality (self, df):
-        postcode_file = pd.read_excel("./PC_Reference.xlsx")                                                        
-        postcode_df = pd.DataFrame(pd.read_csv("./PC_Reference.csv"))
-        normalized_df = pd.merge(df, postcode_file, on='postCode', how='Left')
+        postcode_df = pd.read_excel("./PC_Reference.xlsx")                                                        
+        normalized_df = pd.merge(df, postcode_df, on='postCode', how='left')
         return normalized_df
-        
-        

@@ -52,5 +52,10 @@
 - drop dubble (and X) epc score (12 rows)
 - drop the unnamed column
 
+Visualize :
+- histogramm : price
+- skatterplot : type (house, appartement, subtype)
+- heat map :  epc score 
+
 
 

@@ -15,12 +15,12 @@ def main():
     df = dataviz.drop_column(df)
         
     df = dataviz.remove_empty_rows(df)
-    
 
     df= dataviz.normalize_municipality(df)
             
-
     df = dataviz.sanitize_epcScore(df)
+    
+    df = dataviz.filter_likely_outliers(df)
 
     dataviz.save_csv(df, 'cleaned_data.csv')
     

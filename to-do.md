@@ -57,5 +57,8 @@ Visualize :
 - skatterplot : type (house, appartement, subtype)
 - heat map :  epc score 
 
+-drop ID : Too much habitable surface : Apartements : 20661149, 20527562, 20581715
+            Houses : 20644658, 20577663, 11461274
+
 
 

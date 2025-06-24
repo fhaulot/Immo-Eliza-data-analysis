@@ -111,3 +111,9 @@ class DataAnalysis:
     def remove_empty_rows(self, df):
         cleaned_df = df.dropna()
         return cleaned_df
+
+    def sanitize_epcScore(self, df):
+        # Matches scores from A to G with optional + and -
+        valid_epc_regex = r'^[A-G][+-]*$'
+        df = df[df['epcScore'].str.match(valid_epc_regex)]
+        return df

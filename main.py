@@ -22,7 +22,10 @@ def main():
     
     df = dataviz.filter_likely_outliers(df)
 
+    df = dataviz.add_region_column(df)
+
     df = dataviz.price_square_meter(df)
+
 
     dataviz.save_csv(df, 'cleaned_data.csv')
     

@@ -10,7 +10,7 @@ class DataAnalysis:
         print(df.info())
         return df
 
-    def drop_column(self, df:pd.DataFrame) :
+    def drop_column(self, df) :
         # dropping the columns we think don't have enough relevant data to use
         Col_to_drop = ["Unnamed: 0",
         "bathroomCount",
@@ -132,9 +132,25 @@ class DataAnalysis:
         df = df[df['epcScore'].str.match(valid_epc_regex)]
         return df
 
+    def add_region_column(self, df) :
+        province_to_region = {'Antwerp': 'Flanders', 
+                              'East Flanders': 'Flanders',
+                              'Flemish Brabant': 'Flanders', 
+                              'Limburg': 'Flanders',
+                              'West Flanders': 'Flanders',
+                              'Walloon Brabant': 'Wallonia',
+                              'Hainaut': 'Wallonia',
+                              'Liège': 'Wallonia',
+                              'Luxembourg': 'Wallonia',
+                              'Namur': 'Wallonia',
+                              'Brussels': 'Brussels'}
+        df['region'] = df['province'].map(province_to_region)
+        return df
+
 
     # Add price per square meter
     def price_square_meter(self, df):
         df["price_square_meter"] = df["price"]/df["habitableSurface"]
         print(df.info())
         return df
+

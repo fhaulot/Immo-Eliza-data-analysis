@@ -131,7 +131,7 @@ class DataAnalysis:
         valid_epc_regex = r'^[A-G][+-]*$'
         df = df[df['epcScore'].str.match(valid_epc_regex)]
         return df
-    
+
     def add_region_column(self, df) :
         province_to_region = {'Antwerp': 'Flanders', 
                               'East Flanders': 'Flanders',
@@ -146,4 +146,11 @@ class DataAnalysis:
                               'Brussels': 'Brussels'}
         df['region'] = df['province'].map(province_to_region)
         return df
-    
+
+
+    # Add price per square meter
+    def price_square_meter(self, df):
+        df["price_square_meter"] = df["price"]/df["habitableSurface"]
+        print(df.info())
+        return df
+

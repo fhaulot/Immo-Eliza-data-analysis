@@ -132,3 +132,9 @@ class DataAnalysis:
         df = df[df['epcScore'].str.match(valid_epc_regex)]
         return df
 
+
+    # Add price per square meter
+    def price_square_meter(self, df):
+        df["price_square_meter"] = df["price"]/df["habitableSurface"]
+        print(df.info())
+        return df
